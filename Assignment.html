@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ashrsful's Phone Center</title>
+    <title>Ashrsful's Product Center</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="icon/phone.jpg" type="image/x-icon">
 
@@ -20,10 +20,10 @@
 <body>
     <header>
         <div class="mt-5">
-            <h1 class="text-center mt-3 text-dark fw-bold display-5">Ashraful's Phone Center</h1>
-            <h2 class="text-center mt-3 text-danger fw-bold">Search for the Phone you want </h2>
+            <h1 class="text-center mt-3 text-dark fw-bold display-5">Ashraful's Product Center</h1>
+            <h2 class="text-center mt-3 text-danger fw-bold">Search for the Product you want </h2>
             <div class="input-group my-3 w-50 mx-auto">
-                <input id="search-field" type="text" class="form-control " placeholder="Your phone name or catagory">
+                <input id="search-field" type="text" class="form-control " placeholder="Your product name or catagory">
                 <button onclick="searchPhones()" id="button-search" class="btn btn-outline-danger"
                     type="button">Search</button>
             </div>
@@ -31,7 +31,10 @@
     </header>
 
     <main>
-        <section class="container">
+        <section id="details" class="container p-3">
+            
+        </section>
+        <section class="container my-5">
             <div class="row g-3" id="search-result">
                 
             </div>

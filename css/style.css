@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@700&display=swap');
+
 
 body{
     font-family: 'Roboto', sans-serif;
@@ -6,4 +8,16 @@ body{
 /* For more radius */
 .radius-9{
     border-radius: 40px;
+}
+.text-myColor{
+    color: rgb(207, 42, 97);
+}
+.break-line{
+    word-wrap: break-word;
+}
+.card-mine{
+    border-radius: 40px;
+    color: black;
+    box-shadow: 10px 10px 20px 7px #888888;
+    padding: 1.5rem;
 }
