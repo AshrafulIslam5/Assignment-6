@@ -3,3 +3,7 @@
 body{
     font-family: 'Roboto', sans-serif;
 }
+/* For more radius */
+.radius-9{
+    border-radius: 40px;
+}
