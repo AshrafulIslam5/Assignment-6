@@ -21,16 +21,17 @@
     <header>
         <div class="mt-5">
             <h1 class="text-center mt-3 text-dark fw-bold display-5">Ashraful's Product Center</h1>
-            <h2 class="text-center mt-3 text-danger fw-bold">Search for the Product you want </h2>
+            <h2 class="text-center mt-3 text-myColor fw-bold">Search for the Product you want </h2>
             <div class="input-group my-3 w-50 mx-auto">
                 <input id="search-field" type="text" class="form-control " placeholder="Your product name or catagory">
                 <button onclick="searchPhones()" id="button-search" class="btn btn-outline-danger"
                     type="button">Search</button>
             </div>
-        </div>
+            <footer class="text-center"><h5>Found: <span id="found">0</span></h5></footer>
     </header>
 
     <main>
+       
         <section id="details" class="container p-3">
             
         </section>
@@ -38,6 +39,7 @@
             <div class="row g-3" id="search-result">
                 
             </div>
+            <button id="show" class="btn btn-primary mt-4">Show more</button>
         </section>
     </main>
 

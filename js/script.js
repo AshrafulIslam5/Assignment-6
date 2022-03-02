@@ -1,6 +1,9 @@
 const searchResult = document.getElementById('search-result');
 const details = document.getElementById('details');
 details.style.display = "none";
+const showBtn = document.getElementById('show');
+showBtn.style.display = "none";
+let found = document.getElementById('found');
 
 function searchPhones() {
     details.textContent = '';
@@ -26,29 +29,86 @@ function searchPhones() {
 }
 
 const displayPhones = phones => {
-    // console.log(phones);
+    const length = phones.length;
+    found.innerText = length;
+    console.log(length);
 
-    phones.forEach(phone => {
-        // console.log(phone);
-        const div = document.createElement('div');
-        div.classList.add('card-mine');
-        div.innerHTML = `
-            <div class="text-center">
-                <img class="w-50 h-auto mb-3" src="${phone.image}">
-                <p><strong>Phone Brand: </strong> ${phone.brand}</p>
-                <p><strong>Phone name: </strong> ${phone.phone_name}</p>
-                <button onclick="displayDetails('${phone.slug}')" class="btn btn-primary">Details</button>
-            </div>
-        `;
+    if (length > 20) {
+        showBtn.style.display = "block";
+        const slicedphones = phones.slice(0, 20);
+        slicedphones.forEach(phone => {
+            // console.log(phone);
+            const div = document.createElement('div');
+            div.classList.add('card-mine');
+            div.innerHTML = `
+                <div class="text-center">
+                    <img class="w-50 h-auto mb-3" src="${phone.image}">
+                    <p><strong>Phone Brand: </strong> ${phone.brand}</p>
+                    <p><strong>Phone name: </strong> ${phone.phone_name}</p>
+                    <a onclick="displayDetails('${phone.slug}')" class="btn btn-primary text-white text-decoration-none border-0" href="#details">details</a>
+                </div>
+            `;
 
-        // for gapping purposes.... sorry
-        const parentDiv = document.createElement('div');
-        parentDiv.classList.add('col-lg-4')
-        parentDiv.classList.add('p-3')
-        parentDiv.appendChild(div);
-        searchResult.appendChild(parentDiv);
-    })
+            // for gapping purposes.... sorry
+            const parentDiv = document.createElement('div');
+            parentDiv.classList.add('col-lg-4')
+            parentDiv.classList.add('p-3')
+            parentDiv.appendChild(div);
+            searchResult.appendChild(parentDiv);
+        })
+        showBtn.addEventListener('click', function () {
+            showBtn.style.display = "none";
+            const slicedphones = phones.slice(0);
+        slicedphones.forEach(phone => {
+            // console.log(phone);
+            const div = document.createElement('div');
+            div.classList.add('card-mine');
+            div.innerHTML = `
+                <div class="text-center">
+                    <img class="w-50 h-auto mb-3" src="${phone.image}">
+                    <p><strong>Phone Brand: </strong> ${phone.brand}</p>
+                    <p><strong>Phone name: </strong> ${phone.phone_name}</p>
+                    <a onclick="displayDetails('${phone.slug}')" class="btn btn-primary text-white text-decoration-none border-0" href="#details">details</a>
+                </div>
+            `;
+
+            // for gapping purposes.... sorry
+            const parentDiv = document.createElement('div');
+            parentDiv.classList.add('col-lg-4')
+            parentDiv.classList.add('p-3')
+            parentDiv.appendChild(div);
+            searchResult.appendChild(parentDiv);
+        })
+        })
+    }
+    else {
+        showBtn.style.display = "none";
+        phones.forEach(phone => {
+            // console.log(phone);
+            const div = document.createElement('div');
+            div.classList.add('card-mine');
+            div.innerHTML = `
+                <div class="text-center">
+                    <img class="w-50 h-auto mb-3" src="${phone.image}">
+                    <p><strong>Phone Brand: </strong> ${phone.brand}</p>
+                    <p><strong>Phone name: </strong> ${phone.phone_name}</p>
+                    <a onclick="displayDetails('${phone.slug}')" class="btn btn-primary text-white text-decoration-none border-0" href="#details">details</a>
+                </div>
+            `;
+
+            // for gapping purposes.... sorry
+            const parentDiv = document.createElement('div');
+            parentDiv.classList.add('col-lg-4')
+            parentDiv.classList.add('p-3')
+            parentDiv.appendChild(div);
+            searchResult.appendChild(parentDiv);
+        })
+    }
+
 }
+
+
+
 
 
 
@@ -69,8 +129,8 @@ const displayDetails = id => {
             <div class="row p-5 align-items-center card-mine">
                 <div class="col-lg-6 col-sm-12">
                     <img class="w-75 h-auto" src="${detail.image}" alt="">
-                    <h4 class="text-myColor mt-4"><strong>Name: </strong>${detail.name}</h4>
-                    <h4 class="text-myColor"><strong>Release Date: </strong>${detail.releaseDate}</h4>
+                    <h5 class="text-myColor mt-4"><strong>Name: </strong>${detail.name}</h5>
+                    <h5 class="text-myColor"><strong>Release Date: </strong>${detail.releaseDate}</h5>
                 </div>
                 <div class="col-lg-6 col-sm-12">
                     <h4 class="fw-bold mt-5">Details</h4>
